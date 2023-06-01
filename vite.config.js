@@ -22,5 +22,5 @@ export default defineConfig({
     setupFiles: 'src/setupTests.ts',
     clearMocks: true,
   },
-  base: 'https://preinspiron.github.io/vite3-react-redux',
+  base: '/vite3-react-redux/',
 });
