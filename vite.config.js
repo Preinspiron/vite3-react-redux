@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename);
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // base: '/vite3-react-redux/',
+  base: '/vite3-react-redux/',
   build: {
     rollupOptions: {
       input: {
