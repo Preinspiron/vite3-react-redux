@@ -7,8 +7,11 @@ import Tweets from '../pages/Tweets';
 function Routing() {
     return (
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="tweets" element={<Tweets />} />
+      <Route path="/"> 
+        <Route index element={<Home />} />
+        <Route path="/t" element={<Tweets />} />
+      </Route>
+        
         
       </Routes>
     );
