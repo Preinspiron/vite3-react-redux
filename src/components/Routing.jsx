@@ -9,7 +9,7 @@ function Routing() {
       <Routes>
       <Route path="/"> 
         <Route index element={<Home />} />
-        <Route path="/t" element={<Tweets />} />
+        <Route path="t" element={<Tweets />} />
       </Route>
         
         
