@@ -66,11 +66,5 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-unused-vars': 'off',
     'react/react-in-jsx-scope': 'off',
-    'prettier/prettier': [
-      'error',
-      {
-        endOfLine: 'auto',
-      },
-    ],
   },
 };
