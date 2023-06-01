@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/emre-cil/viterjs-template/issues"
   },
-  "homepage": "https://github.com/emre-cil/viterjs-template#readme",
+  "homepage": "https://preinspiron.github.io/vite3-react-redux/",
   "scripts": {
     "dev": "vite --open",
     "start": "vite --open",
