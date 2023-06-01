@@ -24,5 +24,4 @@ export default defineConfig({
     clearMocks: true,
   },
   base: '/vite3-react-redux/',
-  // publicDir: '/',
 });

@@ -4,7 +4,7 @@ import Routing from './routes/Routing';
 
 function App() {
   return (
-    <BrowserRouter basename="/vite3-react-redux/">
+    <BrowserRouter basename="/">
       <CssBaseline />
       <Routing />
     </BrowserRouter>
