@@ -4,7 +4,7 @@ import Routing from './routes/Routing';
 
 function App() {
   return (
-    <BrowserRouter basename="/https://preinspiron.github.io/vite3-react-redux/">
+    <BrowserRouter basename="/vite3-react-redux/">
       <CssBaseline />
       <Routing />
     </BrowserRouter>
