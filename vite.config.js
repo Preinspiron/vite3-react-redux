@@ -6,7 +6,7 @@ import * as path from 'path';
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: 'dist',
+    // outDir: 'dist',
     sourcemap: false,
   },
   resolve: {
@@ -23,5 +23,5 @@ export default defineConfig({
     setupFiles: 'src/setupTests.ts',
     clearMocks: true,
   },
-  base: '/vite3-react-redux/',
+  base: 'vite3-react-redux',
 });
