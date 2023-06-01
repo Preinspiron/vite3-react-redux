@@ -8,10 +8,12 @@
     "resolveJsonModule": true,
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,
-    // "baseUrl": "./src",
-    // "paths": {
-    // "@/*": ["./*"]
-    // }
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
   },
   "exclude": [
     "node_modules",

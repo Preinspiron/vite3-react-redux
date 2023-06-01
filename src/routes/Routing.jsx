@@ -9,7 +9,7 @@ function Routing() {
     <Routes>
       <Route path="*" element={<Home />} />
       <Route path="/login/*" component={<Login />} />
-      <Route path="/register/*" element={<Register />} />
+      <Route path="/register" element={<Register />} />
     </Routes>
   );
 }

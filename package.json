@@ -2,6 +2,7 @@
   "name": "viterjs-template",
   "version": "1.1.7",
   "description": "React + Vite + Redux + MuI + axios + RRD + Prettier => Boilerplate",
+  "homepage": "https://preinspiron.github.io/vite3-react-redux/",
   "license": "MIT",
   "author": "emrecil <info.emrecil@gmail.com>",
   "keywords": [
@@ -23,7 +24,6 @@
   "bugs": {
     "url": "https://github.com/emre-cil/viterjs-template/issues"
   },
-  "homepage": "https://preinspiron.github.io/vite3-react-redux/",
   "scripts": {
     "dev": "vite --open",
     "start": "vite --open",
@@ -64,7 +64,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.8.8",
-    "vite": "^4.3.9",
+    "vite": "^4.3.6",
     "vite-plugin-fonts": "^0.7.0",
     "vitest": "^0.31.0"
   }
