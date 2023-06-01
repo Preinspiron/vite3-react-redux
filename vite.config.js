@@ -23,5 +23,5 @@ export default defineConfig({
     setupFiles: 'src/setupTests.ts',
     clearMocks: true,
   },
-  base: 'vite3-react-redux',
+  base: '/vite3-react-redux',
 });
