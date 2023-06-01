@@ -1,26 +1,24 @@
-import react from '@vitejs/plugin-react-swc';
-import { defineConfig } from 'vite';
-import * as path from 'path';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+// import { resolve} from 'path'
+// import path from 'path'
+
+// import url from 'url'
+
+// const __filename = url.fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
+
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  build: {
-    // sourcemap: false,
-  },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
-    },
-    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
-  },
-  test: {
-    css: false,
-    include: ['src/**/__tests__/*'],
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: 'src/setupTests.ts',
-    clearMocks: true,
-  },
   base: '/vite3-react-redux/',
-});
+  // build: {
+  //   rollupOptions: {
+  //     input: {
+  //       main: resolve(__dirname, "index.html"),
+        
+  //     },
+  //   },
+  // },
+})
