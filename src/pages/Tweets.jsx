@@ -3,15 +3,14 @@ import Tweet from "../components/Tweet/Tweet";
 import Filter from "../components/Filter/Filter";
 import { useGetUsersQuery} from '@/api/store';
 
-
-
 const idies = {     
         id:['2', '3', '6']
 }
 const Tweets = () => {
-    const {data, isFetching}  = useGetUsersQuery();
+    const {data=[]}  = useGetUsersQuery();
     console.log(data)
     const [filter, setFilter] = useState('');
+
 
   const change = (data) => {
    setFilter(data);
