@@ -1,7 +1,7 @@
 
 import s from './Tweet.module.scss';
 import PropTypes from 'prop-types';
-const Tweet = ({id, avatar, followers, tweets}) => {
+const Tweet = ({id=null, avatar=null, followers=null, tweets=null}) => {
     return <li id={id}>
        
         <img loading="lazy" src={avatar} alt="avatar" className={s.avatar}/>
