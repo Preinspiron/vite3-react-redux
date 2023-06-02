@@ -2,7 +2,8 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from '../pages/Home';
 import Tweets from '../pages/Tweets';
-import Layout from './Layout';
+import Layout from '../components/Layout';
+
 
 
 function Routing() {
