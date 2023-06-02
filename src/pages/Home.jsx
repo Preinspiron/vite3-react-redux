@@ -1,3 +1,4 @@
+// import PropTypes from 'prop-types';
 import Tweet from '@/components/Tweet/Tweet';
 import s from './Home.module.scss';
 
@@ -36,7 +37,9 @@ const Home = () => (
     {tempArr.map((item) => (
       <Tweet key={item.id} {...item} />
     ))}
+    {console.log(onclick)}
   </ul>
 );
 
 export default Home;
+
