@@ -12,9 +12,9 @@ function Routing() {
   const {data, isFetching}  = useGetUsersQuery()
   console.log(data);
   console.log(isFetching);
-const [putUser, {}]  = usePutUserMutation()
+// const [putUser, {}]  = usePutUserMutation()
 // console.log(usePutUserMutation);
-console.log(putUser(1));
+// console.log(putUser(1));
 
 
     return (

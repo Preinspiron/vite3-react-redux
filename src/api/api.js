@@ -6,8 +6,15 @@ export default createApi({
     endpoints: (builder) => ({
       getUsers: builder.query({
         query: () => ({url:"users"}),
-        providesTags: (result, error, id) => [{ type: 'User', id }],
-        }),
+        providesTags: (result) =>
+        result
+          ? [
+              ...result.map(({ id }) => ({ type: 'User' , id })),
+              { type: 'User', id: 'LIST' },
+            ]
+          : [{ type: 'User', id: 'LIST' }],
+    }),
+
         putUser: builder.mutation({
             query:id=>({url:`users/${id}`, method:'PUT'} ),
             invalidatesTags: ['User']
