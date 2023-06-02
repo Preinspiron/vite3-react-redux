@@ -17,7 +17,7 @@ export default createApi({
 
         putUser: builder.mutation({
             query:id=>({url:`users/${id}`, method:'PUT'} ),
-            invalidatesTags: ['User']
+            invalidatesTags: ['User'],
         }),
     }),
 });
