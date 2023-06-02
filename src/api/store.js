@@ -1,50 +1,38 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { createApi, fetchBaseQuery,  } from '@reduxjs/toolkit/query/react';
-// import { setCredentials, logOut } from '../../features/user/userSlice';
-
-// const baseQuery = fetchBaseQuery({
-//   baseUrl: '/',
-//   prepareHeaders: (headers, { getState }) => {
-//     const { token } = getState().auth;
-//     if (token) {
-//       headers.set('Authorization', `Bearer ${token}`);
-//     }
-//     return headers;
-//   },
-// });
-
-// const baseQueryWithReauth = async (args, api, extraOptions) => {
-//   let result = await baseQuery(args, api, extraOptions);
-//   if (result?.error?.originalStatus === 403) {
-//     const refreshResult = await baseQuery('/refresh', api, extraOptions);
-//     if (refreshResult?.data) {
-//       const user = api.getState().auth.user;
-//     //   api.dispatch(setCredentials({ user, ...refreshResult.data }));
-//       result = await baseQuery(args, api, extraOptions);
-//     } else {
-//     //   api.dispatch(logOut());
-//     }
-//   }
-//   return result;
-// };
+import { setupListeners } from '@reduxjs/toolkit/query'
 
 export const api = createApi({
-    reducerPath: 'pokemonApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://pokeapi.co/api/v2/' }),
+    reducerPath: 'usersApi',
+    baseQuery: fetchBaseQuery({ baseUrl: 'https://64635d734dca1a66135ba7bc.mockapi.io/' }),
     endpoints: (builder) => ({
-      getPokemonByName: builder.query({
-        query: (name) => `pokemon/${name}`,
-      }),
+      getUsers: builder.query({
+        query: () => "users"}),
+        providesTags: (result) =>
+        result
+          ? [
+              ...result.map(({ id }) => ({ type: 'Post', id })),
+              { type: 'Post', id: 'LIST' },
+            ]
+          : [{ type: 'Post', id: 'LIST' }],
     }),
-  })
+    })
+
 
 export const store = configureStore({
     reducer: {[api.reducerPath] : api.reducer},
 
-    middleware: (getdefaultMiddleware) => getdefaultMiddleware().concat(api.middleware),
+    middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(api.middleware),
     devTools: true,
 });
 export const persistor = {}
+
+setupListeners(store.dispatch)
+export const {useGetUsersQuery} = api
+
+
+
 
 
 
