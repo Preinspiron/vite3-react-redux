@@ -2,6 +2,8 @@
 import Tweet from '@/components/Tweet/Tweet';
 import { useEffect, useState } from 'react';
 
+import { useGetUsersQuery, usePutUserMutation } from '@/api/store';
+
 const tempArr = [
   {
     createdAt: '2023-06-01T02:37:47.927Z',
@@ -69,6 +71,8 @@ const tempArr = [
 ];
 
 const Home = () => {
+  const { data, isFetching } = useGetUsersQuery();
+  console.log(data);
   const [page, setPage] = useState(1);
   const [usersArr, setUsersArr] = useState([]);
 
