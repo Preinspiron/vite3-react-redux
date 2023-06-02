@@ -1,22 +1,32 @@
 import Select from 'react-select';
-import { filterOptions } from './options';
-
-const Filter = () => {
+import PropTypes from 'prop-types';
+import  {filterOptions}  from './options';
+import { useState, useEffect } from 'react';
+// сделать так что бі при обновлении страницы инишиал стейт принимал уже выбранное ранее значение 
+const Filter = ({change}) => {
+    const [selectedOption, setSelectedOption] = useState(filterOptions[0]); 
     
-
-    // handleChange = (e) => {
-    //     console.log(e.target.value);
-    //     // записать это значение в стейт, от него будет зависеть список твитс
-    //     // если есть рубрика то массив твитсов будет фильтроваться по условию, 
-    //     // если другой список то противоречие условию, если все, то просто меп.
-    // }
-
-return <Select
+    
+    useEffect(() => {
+        change(selectedOption.value.toString());
+    }, [selectedOption])
+    
+    const handleChange = (selectedOptions) => {
+        setSelectedOption(selectedOptions);
+    }
+  
+return (<Select
 className="filter-container"
 classNamePrefix="filter"
 options ={filterOptions}
-// onChange ={handleChange}
-/>
+value={selectedOption}
+onChange ={handleChange}
+/>)
 
 }
+
+Filter.propTypes = {
+    change:PropTypes.func,
+  }
+
 export default Filter;

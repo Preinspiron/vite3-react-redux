@@ -2,6 +2,7 @@ import { useState } from 'react';
 import s from './Tweet.module.scss';
 import PropTypes from 'prop-types';
 
+
 const Tweet = ({
   id = null,
   avatar = null,
@@ -18,6 +19,7 @@ const Tweet = ({
   };
 
   // притянуть селектор, который проверяет флаг из ектив и передает по условию класс в кнопку ниже
+
   return (
     <li id={id} className={s.wrapper}>
       <img loading="lazy" src={avatar} alt="avatar" className={s.avatar} />
@@ -34,8 +36,8 @@ const Tweet = ({
     </li>
   );
 };
-export default Tweet;
 
+export default Tweet;
 Tweet.propTypes = {
   id: PropTypes.string,
   avatar: PropTypes.string,
