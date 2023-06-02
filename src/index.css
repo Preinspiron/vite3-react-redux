@@ -67,3 +67,30 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.wrapper {
+  width: 100%;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+@media screen and (min-width: 480px) {
+  .wrapper {
+    max-width: 428px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .wrapper {
+    max-width: 1158px;
+    margin: 0 auto;
+  }
+}
