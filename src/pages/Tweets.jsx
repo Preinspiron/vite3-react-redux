@@ -2,6 +2,7 @@ import { useState } from "react";
 import Tweet from "../components/Tweet/Tweet";
 import Filter from "../components/Filter/Filter";
 import { useGetUsersQuery} from '@/api/store';
+import s from './Tweets.module.scss'
 
 
 const idies = {     
@@ -19,12 +20,12 @@ const Tweets = () => {
    setFilter(data);
   }
 
-return <div className="container">
+return <div className={s.container}>
       <Filter 
       change={change}
       />
-     <div className="tweets_container">
-    <ul className="tweets_list">
+     <div className={s.tweets_container}>
+    <ul className={s.tweets_list}>
 
 {filter === 'followings' &&
 
