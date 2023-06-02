@@ -1,13 +1,15 @@
 import Tweet from "../Tweet/Tweet";
+import s from './Tweet.module.scss';
 
-const Tweets = () => {
-   
-    // селектор с массивом юзеров 
-    return <ul>
-        {/* или меп */}
-        {/* {users.map(user => <Tweet key={user.id} id={user.id} avatar={user.avatar} followers={user.followers} tweets={user.tweets} />)} */}
-    {/* или фильтр по 1 условию */}
-    {/* или фильтр по 2 условию */}
-    </ul>
+
+const Tweet = ({id, avatar, followers, tweets}) => {
+    // притянуть селектор, который проверяет флаг из ектив и передает по условию класс в кнопку ниже
+    return <li id={id}>
+       
+        <img loading="lazy" src={avatar} alt="avatar" className={s.avatar}/>
+        <p className={s.tweets}>`${tweets} Tweets`</p>
+        <p className={s.followers}>`${followers} Followers`</p>
+        <button type="button" className={s.button}>text by class</button>
+        </li>
 }
-export default Tweets;
+export default Tweet;
