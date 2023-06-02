@@ -13,7 +13,7 @@ const Layout = () => {
           
           <Button variant="outlined">HOME</Button>
           </Link>
-          <Link  to="/t">
+          <Link  to="/tweets">
           
           <Button variant="outlined">TWEETS</Button>
           </Link>
