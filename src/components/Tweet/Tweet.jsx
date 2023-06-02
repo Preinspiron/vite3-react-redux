@@ -1,10 +1,7 @@
 
 import s from './Tweet.module.scss';
 import PropTypes from 'prop-types';
-
-
-const Tweet = ({id=null, avatar =null ,followers= null, tweets =null }) => {
-    // притянуть селектор, который проверяет флаг из ектив и передает по условию класс в кнопку ниже
+const Tweet = ({id, avatar, followers, tweets}) => {
     return <li id={id}>
        
         <img loading="lazy" src={avatar} alt="avatar" className={s.avatar}/>
