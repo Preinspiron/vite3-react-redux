@@ -22,6 +22,7 @@ const Tweet = ({
     </li>
   );
 };
+
 export default Tweet;
 Tweet.propTypes = {
   id: PropTypes.string,
