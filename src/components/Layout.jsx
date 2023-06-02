@@ -5,9 +5,11 @@ const Layout = () => {
       <>
         {/* <MainContainer> */}
           {/* <Container> */}
-          <div>123</div>
-          <NavLink to='/'>Linkto/</NavLink>
-        <NavLink to='/t'>Linkto/t</NavLink>
+          <nav className='main-nav'>
+          <NavLink className='link'  to='/'>Home</NavLink>
+        <NavLink className='link' to='/t'>Tweets</NavLink>  
+          </nav>
+ 
             {/* {isLoading && <Loader />} */}
             {/* <Suspense fallback={<Loader />}> */}
               <Outlet />
