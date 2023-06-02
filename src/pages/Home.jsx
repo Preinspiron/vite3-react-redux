@@ -90,9 +90,6 @@ const Home = () => {
     setPage((prev) => prev + 1);
   };
 
-  console.log(page);
-  console.log(usersArr);
-
   return (
     <div>
       <ul>
