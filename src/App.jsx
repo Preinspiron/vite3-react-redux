@@ -10,8 +10,7 @@ function App() {
 
   console.log(222);
   return (
-
-    <Container maxWidth='lg' >
+    <Container maxWidth="1280px">
       <Routing />
     </Container>
   );
