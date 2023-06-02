@@ -1,4 +1,4 @@
-import Tweet from "../Tweet/Tweet";
+
 import s from './Tweet.module.scss';
 
 

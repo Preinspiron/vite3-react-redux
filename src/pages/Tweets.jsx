@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { useParams } from "react-router";
-import Tweet from "../components/Tweet/Tweet";
+// import { useState } from "react";
+// import { useParams } from "react-router";
+// import Tweet from "../components/Tweet/Tweet";
 import Filter from "../components/Filter/Filter";
 
 const Tweets = () => {
-    const [filter, setFilter] = useState('all');
+    // const [filter, setFilter] = useState('all');
   
 // селектор с массивом юзеров 
 return <div className="container">
