@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { filterOptions } from './options';
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import './Filter.scss';
 
 const Filter = ({ change }) => {
   const [searchParams] = useSearchParams();
