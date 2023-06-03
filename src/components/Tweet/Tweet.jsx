@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import s from './Tweet.module.scss';
 import { usePutUserMutation } from '@/api/store';
-import { usePutUserMutation } from '@/api/store';
+
 
 import PropTypes from 'prop-types';
 import { useDispatch,  useSelector} from 'react-redux';
-import { setFollow, removeFollow, removeFollow } from '@/api/slice';
+import { setFollow, removeFollow } from '@/api/slice';
 
 
 
@@ -17,24 +17,23 @@ const Tweet = ({
 }) => {
 
 
-
-  const [isFollowing, setIsFollowing] = useState(false);
+  const selectFollowings = useSelector(state => state.followers.follows)
+    const checker = selectFollowings.some(item => item?.id === id) 
+  const [isFollowing, setIsFollowing] = useState(checker);
   const [putUser, {isSuccess}] = usePutUserMutation()
   const dispatch = useDispatch()
-  const selectFollowings = useSelector(state => state.followers.follows)
   
 
   const handleButtonClick = (id, followers) => {
    
-    !isFollowing && dispatch(setFollow(id))
-    isFollowing && dispatch(removeFollow(id))
+
     !isFollowing && dispatch(setFollow(id))
     isFollowing && dispatch(removeFollow(id))
     putUser({id, followers: isFollowing ? followers-1: followers+1}).unwrap()
     setIsFollowing(!isFollowing);
   };
-    const checker = selectFollowings.some(item => item?.id === id) 
-checker checker 
+
+
 
   const buttonStyle = {
     backgroundColor:  checker ? '#5CD3A8' : '#EBD8FF',
@@ -51,7 +50,6 @@ checker checker
       <button
         type="button"
         className={s.button}
-
         onClick={()=>handleButtonClick(id, followers)}
         style={buttonStyle}
       >
