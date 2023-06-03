@@ -6,11 +6,12 @@ import Layout from './Layout';
 
 
 function Routing() {
+
     return (
       <Routes>
       <Route path="/" element={<Layout/>}> 
         <Route index element={<Home />} />
-        <Route path="t" element={<Tweets />} />
+        <Route path="tweets" element={<Tweets />} />
       </Route>
         
         
@@ -19,3 +20,5 @@ function Routing() {
   }
   
   export default Routing;
+
+  

@@ -1,3 +1,4 @@
+// import PropTypes from 'prop-types';
 import Tweet from '@/components/Tweet/Tweet';
 import { useState } from 'react';
 import s from './Home.module.scss';
@@ -35,3 +36,4 @@ const Home = () => {
 };
 
 export default Home;
+
