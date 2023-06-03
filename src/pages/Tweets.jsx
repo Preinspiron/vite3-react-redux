@@ -9,32 +9,36 @@ import Filter from '../components/Filter/Filter';
 import { useGetUsersQuery } from '@/api/store';
 import { useSearchParams } from 'react-router-dom';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import s from '../pages/Tweets.module.scss';
+import { useSelector } from 'react-redux';
 
-const idies = {
-  id: ['2', '3', '6'],
-};
 
 const Tweets = () => {
   const { data = [] } = useGetUsersQuery();
   const [searchParams, setSearchParams] = useSearchParams();
+  const idiesArr = useSelector(state=> state.followers.follows)
+  const idies = idiesArr.map(el => el.id)
 
-  useEffect(() => setSearchParams({ filter: 'all' }), []);
+  // useEffect(() => setSearchParams({ filter: 'all' }), []);
+  // const name = searchParams.get("filter") ?? "";
+  const name = searchParams.get("filter");
 
-  const name = searchParams.get('filter');
 
   const change = (data) => {
-
-    setSearchParams({ filter: data });
+    setSearchParams({ filter: data })
+    // const nextParams = name !== "" ? { filter: data } : {};
+    // setSearchParams(nextParams);
+  
   };
 
   return (
-    <div className="container">
-      <Filter change={change} />
-      <div className="tweets_container">
-        <ul className="tweets_list">
+    <div className={s.container}>
+      <Filter change={change}/>
+      
+        <ul className={s.tweets_list}>
           {name === 'followings' &&
             data
-              .filter((user) => idies.id.includes(user.id))
+              .filter((user) => idies.includes(user.id))
               .map((user) => (
                 <Tweet
                   key={user.id}
@@ -44,10 +48,10 @@ const Tweets = () => {
                   tweets={user.tweets}
                 />
               ))}
-              {name === 'followings' && Notify.info(`You have a ${((data.filter(user => idies.id.includes(user.id)).length))} followings`)}
+              {name === 'followings' && Notify.info(`You have a ${((data.filter(user => idies.includes(user.id)).length))} followings`)}
           {name === 'follow' &&
             data
-              .filter((user) => !idies.id.includes(user.id))
+              .filter((user) => !idies.includes(user.id))
               .map((user) => (
                 <Tweet
                   key={user.id}
@@ -57,7 +61,7 @@ const Tweets = () => {
                   tweets={user.tweets}
                 />
               ))}
-              {name === 'follow' && Notify.info(`You have a ${((data.filter(user => !idies.id.includes(user.id)).length))} tweets to follow`)}
+              {name === 'follow' && Notify.info(`You have a ${((data.filter(user => !idies.includes(user.id)).length))} tweets to follow`)}
           {name === 'all' &&
             data.map((user) => (
               <Tweet
@@ -72,7 +76,7 @@ const Tweets = () => {
             
         </ul>
       </div>
-    </div>
+    
   );
 };
 
