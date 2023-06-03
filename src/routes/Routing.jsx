@@ -10,12 +10,6 @@ import { useGetUsersQuery, usePutUserMutation } from '@/api/store';
 
 function Routing() {
   const {data, isFetching}  = useGetUsersQuery()
-  console.log(data);
-  console.log(isFetching);
-// const [putUser, {}]  = usePutUserMutation()
-// console.log(usePutUserMutation);
-// console.log(putUser(1));
-
 
     return (
       <Routes>
