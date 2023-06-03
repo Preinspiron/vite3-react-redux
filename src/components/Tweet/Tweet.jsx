@@ -3,7 +3,7 @@ import s from './Tweet.module.scss';
 import { usePutUserMutation } from '@/api/store';
 import PropTypes from 'prop-types';
 import { useDispatch,  useSelector} from 'react-redux';
-import { setFollow } from '@/api/slice';
+import { setFollow, removeFollow } from '@/api/slice';
 
 
 
@@ -22,16 +22,16 @@ const Tweet = ({
 
   const handleButtonClick = (id, followers) => {
    
-    
-    dispatch(setFollow(id))
+    !isFollowing && dispatch(setFollow(id))
+    isFollowing && dispatch(removeFollow(id))
     putUser({id, followers: isFollowing ? followers-1: followers+1}).unwrap()
     setIsFollowing(!isFollowing);
   };
     const checker = selectFollowings.some(item => item?.id === id) 
-
+checker 
 
   const buttonStyle = {
-    backgroundColor: isFollowing && checker ? '#5CD3A8' : '#EBD8FF',
+    backgroundColor:  checker ? '#5CD3A8' : '#EBD8FF',
   };
 
   // притянуть селектор, который проверяет флаг из ектив и передает по условию класс в кнопку ниже

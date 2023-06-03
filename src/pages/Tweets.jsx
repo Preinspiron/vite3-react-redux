@@ -10,7 +10,6 @@ const idies = {
 const Tweets = () => {
 
     const {data=[]}  = useGetUsersQuery();
-    console.log(data)
     const [filter, setFilter] = useState('');
 
 
