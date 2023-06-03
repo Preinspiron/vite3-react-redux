@@ -6,9 +6,13 @@ const followSlice = createSlice({
     reducers: {
         setFollow(state,  {payload:id}) {
         state.follows.push({id});
-      },
+        },
+        removeFollow(state, { payload: id }) {
+            console.log(id);
+        state.follows = state.follows.filter(item=> item.id !==id)
+        },
     }
 })
 
-export const {setFollow} = followSlice.actions
+export const {setFollow, removeFollow} = followSlice.actions
 export default followSlice.reducer;
