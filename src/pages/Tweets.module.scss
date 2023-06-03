@@ -2,12 +2,27 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    gap:10px;
+    gap:20px;
+    width:100%;
 }
 
 .tweets_list{
     display:flex;
     flex-wrap: wrap;
-    gap:20px;
+    width:100%;
     list-style-type: none;
+    gap:20px;
+    
+   
+    @media screen and (min-width: 768px){
+        justify-content: space-between;
+        gap:26px;
+      }
+      @media screen and (min-width: 1200px){
+        justify-content: space-between;
+        gap:38px;
+        
+
+      }
+   
 }
