@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import s from './Tweet.module.scss';
 import { usePutUserMutation } from '@/api/store';
+import { usePutUserMutation } from '@/api/store';
 import PropTypes from 'prop-types';
 import { useDispatch,  useSelector} from 'react-redux';
 import { setFollow, removeFollow } from '@/api/slice';
@@ -13,6 +14,7 @@ const Tweet = ({
   followers = null,
   tweets = null,
 }) => {
+
 
   const [isFollowing, setIsFollowing] = useState(false);
   const [putUser, {isSuccess}] = usePutUserMutation()
@@ -38,12 +40,14 @@ checker
 
   return (
     <li id={id} className={s.wrapper} >
+    <li id={id} className={s.wrapper} >
       <img loading="lazy" src={avatar} alt="avatar" className={s.avatar} />
       <p className={s.tweets}>{tweets} Tweets</p>
       <p className={s.followers}>{followers} Followers</p>
       <button
         type="button"
         className={s.button}
+        onClick={()=>handleButtonClick(id, followers)}
         onClick={()=>handleButtonClick(id, followers)}
         style={buttonStyle}
       >
@@ -59,5 +63,6 @@ Tweet.propTypes = {
   avatar: PropTypes.string,
   followers: PropTypes.number,
   tweets: PropTypes.number,
+  
   
 };
