@@ -6,6 +6,8 @@ import Filter from '../components/Filter/Filter';
 import { useGetUsersQuery } from '@/api/store';
 import { useSearchParams } from 'react-router-dom';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import s from '../pages/Tweets.module.scss';
+import { useSelector } from 'react-redux';
 
 const idies = {
   id: ['2', '3', '6'],
