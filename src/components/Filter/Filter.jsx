@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { filterOptions } from './options';
 import { useState, useEffect } from 'react';
 
+
 const Filter = ({ change }) => {
   const [selectedOption, setSelectedOption] = useState(filterOptions[0]);
 

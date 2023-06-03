@@ -1,3 +1,6 @@
+
+
+
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
@@ -5,10 +8,12 @@ import Tweet from '../components/Tweet/Tweet';
 import Filter from '../components/Filter/Filter';
 import { useGetUsersQuery } from '@/api/store';
 import { useSearchParams } from 'react-router-dom';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const idies = {
   id: ['2', '3', '6'],
 };
+
 const Tweets = () => {
   const { data = [] } = useGetUsersQuery();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -18,6 +23,7 @@ const Tweets = () => {
   const name = searchParams.get('filter');
 
   const change = (data) => {
+
     setSearchParams({ filter: data });
   };
 
@@ -38,6 +44,7 @@ const Tweets = () => {
                   tweets={user.tweets}
                 />
               ))}
+              {name === 'followings' && Notify.info(`You have a ${((data.filter(user => idies.id.includes(user.id)).length))} followings`)}
           {name === 'follow' &&
             data
               .filter((user) => !idies.id.includes(user.id))
@@ -50,6 +57,7 @@ const Tweets = () => {
                   tweets={user.tweets}
                 />
               ))}
+              {name === 'follow' && Notify.info(`You have a ${((data.filter(user => !idies.id.includes(user.id)).length))} tweets to follow`)}
           {name === 'all' &&
             data.map((user) => (
               <Tweet
@@ -60,6 +68,8 @@ const Tweets = () => {
                 tweets={user.tweets}
               />
             ))}
+            {name === 'all' && Notify.info(`You have a ${((data.length))} tweets`)}
+            
         </ul>
       </div>
     </div>
