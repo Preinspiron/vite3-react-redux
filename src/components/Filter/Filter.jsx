@@ -3,6 +3,7 @@ import Select from 'react-select';
 import PropTypes from 'prop-types';
 import { filterOptions } from './options';
 import { useState, useEffect } from 'react';
+import './Filter.scss';
 
 
 const Filter = ({ change }) => {
@@ -32,3 +33,5 @@ Filter.propTypes = {
 };
 
 export default Filter;
+
+
