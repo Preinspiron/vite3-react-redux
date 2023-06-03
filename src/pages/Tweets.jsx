@@ -1,6 +1,9 @@
 
 
 
+
+
+
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
@@ -39,6 +42,7 @@ const Tweets = () => {
           {name === 'followings' &&
             data
               .filter((user) => idies.includes(user.id))
+
               .map((user) => (
                 <Tweet
                   key={user.id}
@@ -48,10 +52,14 @@ const Tweets = () => {
                   tweets={user.tweets}
                 />
               ))}
+
+
+
               {name === 'followings' && Notify.info(`You have a ${((data.filter(user => idies.includes(user.id)).length))} followings`)}
           {name === 'follow' &&
             data
               .filter((user) => !idies.includes(user.id))
+
               .map((user) => (
                 <Tweet
                   key={user.id}
@@ -61,8 +69,12 @@ const Tweets = () => {
                   tweets={user.tweets}
                 />
               ))}
+
+       
+
               {name === 'follow' && Notify.info(`You have a ${((data.filter(user => !idies.includes(user.id)).length))} tweets to follow`)}
           {name === 'all' &&
+
             data.map((user) => (
               <Tweet
                 key={user.id}
@@ -72,11 +84,14 @@ const Tweets = () => {
                 tweets={user.tweets}
               />
             ))}
+
+
+
             {name === 'all' && Notify.info(`You have a ${((data.length))} tweets`)}
             
         </ul>
       </div>
-    
+
   );
 };
 
