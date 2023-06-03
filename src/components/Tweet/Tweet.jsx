@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import s from './Tweet.module.scss';
 import { usePutUserMutation } from '@/api/store';
+import PropTypes from 'prop-types';
+import { useDispatch,  useSelector} from 'react-redux';
+import { setFollow } from '@/api/slice';
+
 
 
 const Tweet = ({
@@ -9,13 +13,25 @@ const Tweet = ({
   followers = null,
   tweets = null,
 }) => {
+
   const [isFollowing, setIsFollowing] = useState(false);
-  const handleButtonClick = () => {
-    setIsFollowing(!isFollowing); // Toggle the value of isFollowing
-    followers = isFollowing ? followers - 1 : followers + 1; // Update the followers count
+  const [putUser, {isSuccess}] = usePutUserMutation()
+  const dispatch = useDispatch()
+  const selectFollowings = useSelector(state => state.followers.follows)
+  
+
+  const handleButtonClick = (id, followers) => {
+   
+    
+    dispatch(setFollow(id))
+    putUser({id, followers: isFollowing ? followers-1: followers+1}).unwrap()
+    setIsFollowing(!isFollowing);
   };
+    const checker = selectFollowings.some(item => item?.id === id) 
+
+
   const buttonStyle = {
-    backgroundColor: isFollowing ? '#5CD3A8' : '#EBD8FF',
+    backgroundColor: isFollowing && checker ? '#5CD3A8' : '#EBD8FF',
   };
 
   // притянуть селектор, который проверяет флаг из ектив и передает по условию класс в кнопку ниже
@@ -28,7 +44,7 @@ const Tweet = ({
       <button
         type="button"
         className={s.button}
-        onClick={handleButtonClick}
+        onClick={()=>handleButtonClick(id, followers)}
         style={buttonStyle}
       >
         {isFollowing ? 'FOLLOWING' : 'FOLLOW'}

@@ -8,32 +8,34 @@ import { createApi, fetchBaseQuery,  } from '@reduxjs/toolkit/query/react';
         query: () => ({url:"users"}),
         providesTags: (result) =>
         {
-          console.log('result', result);
+          
           return result
           ? [
               ...result.map(({ id }) => ({ type: 'User' , id })),
               { type: 'User', id: 'LIST' },
             ]
           : [{ type: 'User', id: 'LIST' }]},
-    }),
+    })
+    // providesTags: (result, error, id) => [{ type: 'Post', id }]
+    ,
 
         putUser: builder.mutation({
             query:({id,...patch})=>({url:`users/${id}`, method:'PUT', body:patch} ),
-            // invalidatesTags: ['User'],
-
-        async onQueryStarted({ id, ...patch }, { dispatch, queryFulfilled }) {
-        const patchResult = dispatch(
-          api.util.updateQueryData('getPost', id, (draft) => {
-            Object.assign(draft, patch)
-          })
-        )
-        try {
-          await queryFulfilled
-        } catch {
-          patchResult.undo()
-        }
-      },
-      invalidatesTags: (result, error, { id }) => [{ type: 'User', id }],    
+            
+            // async onQueryStarted({ id, ...patch }, { dispatch, queryFulfilled }) {
+            //   const patchResult = dispatch(
+            //     api.util.updateQueryData('getPost', id, (draft) => {
+            //       Object.assign(draft, patch)
+            //     })
+            //     )
+            //     try {
+            //       await queryFulfilled
+            //     } catch {
+            //       patchResult.undo()
+            //     }
+            //   },
+              // invalidatesTags: (result, error, { id }) => [{ type: 'User', id }],    
+              invalidatesTags: ['User'],
         }),
     }),
 });
