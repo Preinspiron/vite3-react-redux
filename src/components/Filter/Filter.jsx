@@ -1,29 +1,20 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import Select from 'react-select';
-import PropTypes from 'prop-types';
-import { filterOptions } from './options';
-import { useState, useEffect } from 'react';
-import './Filter.scss';
+import Select from "react-select";
+import PropTypes from "prop-types";
+import { filterOptions } from "./options";
+// import { useState, useEffect } from "react";
+// import { useSearchParams, useParams } from "react-router-dom";
+import "./Filter.scss";
 
-
-const Filter = ({ change }) => {
-  const [selectedOption, setSelectedOption] = useState(filterOptions[0]);
-
-  useEffect(() => {
-    change(selectedOption.value);
-  }, [selectedOption]);
-
-  const handleChange = (selectedOption) => {
-    setSelectedOption(selectedOption);
-  };
-
+const Filter = ({ change, urlValue }) => {
   return (
     <Select
+      defaultValue={filterOptions[0]}
       className="filter-container"
       classNamePrefix="filter"
       options={filterOptions}
-      value={selectedOption}
-      onChange={handleChange}
+      value={filterOptions.find((el) => el.value === urlValue)}
+      onChange={(e) => change(e.value)}
     />
   );
 };
@@ -33,5 +24,3 @@ Filter.propTypes = {
 };
 
 export default Filter;
-
-
