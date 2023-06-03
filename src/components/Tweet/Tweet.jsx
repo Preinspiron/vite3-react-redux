@@ -4,10 +4,8 @@ import { usePutUserMutation } from '@/api/store';
 
 
 import PropTypes from 'prop-types';
-import { useDispatch,  useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setFollow, removeFollow } from '@/api/slice';
-
-
 
 const Tweet = ({
   id = null,
@@ -36,7 +34,7 @@ const Tweet = ({
 
 
   const buttonStyle = {
-    backgroundColor:  checker ? '#5CD3A8' : '#EBD8FF',
+    backgroundColor: checker ? '#5CD3A8' : '#EBD8FF',
   };
 
   // притянуть селектор, который проверяет флаг из ектив и передает по условию класс в кнопку ниже
@@ -66,4 +64,6 @@ Tweet.propTypes = {
   avatar: PropTypes.string,
   followers: PropTypes.number,
   tweets: PropTypes.number,
-  };
+  
+  
+};
